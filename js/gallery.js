@@ -71,6 +71,7 @@ const refs = {
 const galleryItem = images
   .map(
     ({ preview, original, description }) => `<li class="gallery-item">
+  <a class="gallery-link" href="large-image.jpg">
     <img
       class="gallery-image"
       src="${preview}"
@@ -78,12 +79,14 @@ const galleryItem = images
       alt="${description}"
       width="360"
     />
+  </a>
 </li>
 `
   )
   .join('');
 
 const onGalleryItemClick = evt => {
+  evt.preventDefault();
   if (evt.target.nodeName !== 'IMG') return;
   const instance = basicLightbox.create(`
       <img src="${evt.target.dataset.source}" width="1112" height="640">
