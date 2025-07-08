@@ -71,7 +71,7 @@ const refs = {
 const galleryItem = images
   .map(
     ({ preview, original, description }) => `<li class="gallery-item">
-  <a class="gallery-link" href="large-image.jpg">
+  <a class="gallery-link" href="${original}">
     <img
       class="gallery-image"
       src="${preview}"
